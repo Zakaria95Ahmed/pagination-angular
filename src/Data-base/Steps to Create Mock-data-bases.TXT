@@ -1,0 +1,30 @@
+1.check you created the data-base-tables
+2.run back-end if use flyway-migration in back-end [[-springboot-files-]]
+-------------------------------------------
+1.goto https://www.mockaroo.com/
+
+2.custom table-fields as desired as shown in 	the attached image
+
+3.generate data button in the web-site
+
+4.save the generated data file and Run it in 	a script inside data-base
+
+5.Configure the image_Url by using this Script:
+-- UPDATE user SET image_url = CONCAT('https://randomuser.me/api/portraits/men/', FLOOR	(RAND() * 100), '.jpg');
+
+6.Configure the status of users tables 
+-- SET SQL_SAFE_UPDATES = 0;
+-- UPDATE users
+-- SET status = CASE
+     WHEN id % 9 = 0 THEN 'ACTIVE'             --  (bg-success)
+     WHEN id % 9 = 1 THEN 'INACTIVE'           --  (bg-secondary)
+     WHEN id % 9 = 2 THEN 'BANNED'             --  (bg-danger)
+     WHEN id % 9 = 3 THEN 'PENDING'            --  (bg-primary)
+     WHEN id % 9 = 4 THEN 'ADMITTED'           --  (bg-warning)
+     WHEN id % 9 = 5 THEN 'DISCHARGED'         --  (bg-light text-dark)
+     WHEN id % 9 = 6 THEN 'UNDER OBSERVATION'  --  (bg-info)
+     WHEN id % 9 = 7 THEN 'CRITICAL'           --  (bg-dark)
+     WHEN id % 9 = 8 THEN 'DECEASED'           --  (bg-black text-white)
+ END;
+
+7.
